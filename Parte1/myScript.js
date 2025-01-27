@@ -1,12 +1,62 @@
 document.addEventListener('DOMContentLoaded', function () {
-
     const form = document.getElementById('contactForm');
     const limpiarBtn = document.getElementById('limpiarBtn');
-    const enviarBtn = document.getElementById('enviarBtn')
+    const enviarBtn = document.getElementById('enviarBtn');
     const toastBorrar = new bootstrap.Toast(document.getElementById('eraseToast'));
     const toastSuccess = new bootstrap.Toast(document.getElementById('successToast'));
 
+    // Función para actualizar el reloj
+    function actualizarReloj() {
+        const relojDiv = document.getElementById('reloj');
+        const fecha = new Date();
 
+        let horas = fecha.getHours();
+        let minutos = fecha.getMinutes();
+        let segundos = fecha.getSeconds();
+
+        // Formato de 2 dígitos
+        horas = horas < 10 ? '0' + horas : horas;
+        minutos = minutos < 10 ? '0' + minutos : minutos;
+        segundos = segundos < 10 ? '0' + segundos : segundos;
+
+        // Mostrar el tiempo en formato HH:MM:SS
+        relojDiv.textContent = `${horas}:${minutos}:${segundos}`;
+    }
+
+    // Actualizar el reloj cada segundo
+    setInterval(actualizarReloj, 1000);
+
+    // Llamar a la función para mostrar el reloj al cargar la página
+    actualizarReloj();
+
+    // Función para buscar en la tabla
+    function buscarLibro() {
+        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        const tableRows = document.querySelectorAll("#tabla-libros tbody tr");
+
+        tableRows.forEach(function (row) {
+            const cells = row.getElementsByTagName("td");
+            let match = false;
+            for (let i = 0; i < cells.length; i++) {
+                const cellText = cells[i].textContent.toLowerCase();
+                if (cellText.includes(searchTerm)) {
+                    match = true;
+                    break;
+                }
+            }
+
+            // Mostrar u ocultar la fila en función de si hay una coincidencia
+            if (match) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+
+    // Agregar el evento al campo de búsqueda
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener('input', buscarLibro);  // Llamamos a buscarLibro cada vez que el usuario escriba
 
     // Función para validar texto (nombre y mensaje)
     function validarTexto(id) {
@@ -86,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Validar formulario antes de enviar
-    enviarBtn.addEventListener('submit', function (event) {
+    Event.addEventListener('submit', function (event) {
         event.preventDefault();  // Prevenir el envío del formulario
 
         // Limpiar los mensajes de error previos
@@ -105,12 +155,32 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isNombreValido && isMensajeValido && isFechaValida && isTelefonoValido && isEdadValida && isCheckboxValido) {
             // Aquí enviarías el formulario (en un caso real, tal vez una llamada AJAX, o solo `form.submit()`)
             toastSuccess.show();  // Mostrar el Toast de éxito
-            form.onsubmit();
+            form.reset();
 
             // Esperar 4 segundos antes de ocultar el toast
             setTimeout(function () {
                 toastSuccess.hide();
             }, 4000);
+        }
+    });
+
+    // Funcionalidad para cambiar entre modo claro y modo oscuro
+    const toggleBtn = document.getElementById('bot_oscuro_claro');
+
+    // Comprobar el modo preferido guardado (si existe en el localStorage)
+    if (localStorage.getItem('modo') === 'oscuro') {
+        document.body.classList.add('modo-oscuro');
+    }
+
+    // Alternar entre modo claro y modo oscuro
+    toggleBtn.addEventListener('click', function () {
+        document.body.classList.toggle('modo-oscuro');
+
+        // Guardar la preferencia en el localStorage
+        if (document.body.classList.contains('modo-oscuro')) {
+            localStorage.setItem('modo', 'oscuro');
+        } else {
+            localStorage.setItem('modo', 'claro');
         }
     });
 });

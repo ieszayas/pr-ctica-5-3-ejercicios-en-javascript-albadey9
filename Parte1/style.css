@@ -1,5 +1,4 @@
-/* styles.css */
-
+/* Cambios generales */
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -11,13 +10,60 @@ body {
     padding: 50px 0;
     text-align: center;
 }
+
 .negrita {
     font-weight: bold;
 }
 
+body.modo-oscuro {
+    background-color: #5e4d36;
+    color: #ffffff;
+}
+
+body.modo-oscuro .navbar {
+    background-color: #5e4d36;
+    /* Fondo oscuro para la barra de navegación */
+}
+
+body.modo-oscuro .btn-primary {
+    background-color: #ffffff;
+    /* Cambiar el color de los botones */
+}
+
+body.modo-oscuro .btn-warning {
+    background-color: #5e4d36;
+    /* Color del botón en modo oscuro */
+}
+
+body.modo-oscuro .table-bordered,
+body.modo-oscuro .table-striped {
+    background-color: #3e2c1c;
+    /* Fondo marrón para la tabla */
+    color: #fff;
+    /* Cambiar color de texto a blanco */
+}
+
+body.modo-oscuro .table-bordered th,
+body.modo-oscuro .table-striped th {
+    background-color: #4a3622;
+    /* Fondo más oscuro para las cabeceras de la tabla */
+}
+
+body.modo-oscuro .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #5d3d2e;
+    /* Fondo marrón más claro en las filas impares */
+}
+
+body.modo-oscuro .table-striped tbody tr:hover {
+    background-color: #8e6b4d;
+    /* Fondo marrón claro al hacer hover */
+}
+
 .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
-    background-color: #887152; /* Cambia el fondo a verde */
-    color: white; /* Cambia el color del texto a blanco */
+    background-color: #887152;
+    /* Cambia el fondo marron*/
+    color: white;
+    /* Cambia el color del texto a blanco */
 }
 
 .centrar {
@@ -31,16 +77,16 @@ body {
     color: #0d6efd;
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #aca8a4;
-}
-
-.table-striped tbody tr:hover {
-    background-color: #ffe3bc;
-}
-
 .carousel-inner img {
-    object-fit: cover; /* Ajusta la imagen sin distorsión */
-    margin: 0 auto; /*Centra las imágenes */
+    object-fit: cover;
+    /* Ajusta la imagen sin distorsión */
+    margin: 0 auto;
+    /* Centra las imágenes */
 }
 
+#reloj {
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
