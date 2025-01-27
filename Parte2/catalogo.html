@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de Libros</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <script src="myScript.js"></script>
+
+    <style>
+        /* Personaliza estilos adicionales si lo necesitas */
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #b6a792;">
+        <div class="container-fluid">
+            <a class="navbar-brand negrita" href="index.html">LibrosOnline</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalogo.html" target="_blank">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#carrusel">Galería</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #b6a792;">
+                            <li><a class="dropdown-item" href="#">Ficción</a></li>
+                            <li><a class="dropdown-item" href="#">No ficción</a></li>
+                            <li><a class="dropdown-item" href="#">Infantil</a></li>
+                            <li><a class="dropdown-item" href="#">Fantasía</a></li>
+                            <li><a class="dropdown-item" href="#">Autoayuda</a></li>
+                            <li><a class="dropdown-item" href="#">Historia</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Botón Modo Oscuro/Claro en el menú -->
+                        <button id="bot_oscuro_claro" class="btn btn-outline-light">Modo Oscuro/Claro</button>
+                    </li>
+
+
+                </ul>
+                
+                <form class="d-flex" id="searchInput" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    
+    <!-- Hero Section -->
+    <div class="hero negrita">
+        <h1>Descubre los mejores libros al mejor precio</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="..\media\alas_sangre.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">
+              <span class="short-description">Sinopsis de "Alas de Sangre": Un mundo de guerra y magia donde el destino de dos jóvenes guerreros se cruza, iniciando una lucha que cambiará todo.</span>
+              <span class="full-description" style="display:none;">El mundo está sumido en el caos, y dos jóvenes guerreros se ven arrastrados a una lucha épica que pondrá a prueba su fuerza, sus creencias y sus emociones. Mientras las facciones se enfrentan en batallas sangrientas, el verdadero poder radica en secretos ocultos en las sombras que podrían cambiar el curso de la historia. ¿Hasta dónde llegarán para proteger a los que aman y cumplir con su destino?</span>
+            </p>
+            <a href="#" class="read-more">Leer más...</a>
+          </div>
+          <div class="col-md-2">
+            <img src="..\media\alas_hierro.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">
+              <span class="short-description">Sinopsis de "Alas de Hierro": La lucha por el trono de hierro pone en juego la vida de una joven princesa y su reino.</span>
+              <span class="full-description" style="display:none;">En un reino donde el poder lo define la fuerza, la joven princesa tendrá que enfrentarse a fuerzas oscuras que buscan derrocar a su familia. Mientras el trono de hierro se convierte en un símbolo de poder y control, ella se verá atrapada en una red de intriga, traición y amor. ¿Podrá proteger su reino o será el precio del poder demasiado alto?</span>
+            </p>
+            <a href="#" class="read-more">Leer más...</a>
+          </div>
+          <div class="col-md-2">
+            <img src="..\media\alas_onix.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">
+              <span class="short-description">Sinopsis de "Alas de Onix": La aventura de un joven que debe descubrir los secretos de un arte antiguo antes de que caigan en manos equivocadas.</span>
+              <span class="full-description" style="display:none;">Cuando el joven protagonista descubre un antiguo arte oculto, se embarca en una aventura peligrosa. En un mundo lleno de magia y misterio, debe aprender rápidamente a dominar su poder antes de que fuerzas oscuras lo utilicen para sus propios fines. Con aliados y enemigos a cada paso, la búsqueda de la verdad lo llevará a enfrentarse a los secretos más oscuros del mundo.</span>
+            </p>
+            <a href="#" class="read-more">Leer más...</a>
+          </div>
+          <div class="col-md-2">
+            <img src="..\media\corte_rosas.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+          </div>
+          <div class="col-md-2">
+            <img src="..\media\espada_asesina.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+          </div>
+          <div class="col-md-2">
+            <img src="..\media\heredera_fuego.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+          </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="..\media\corte_hielo.png" class="img-fluid" alt="Descripción de la imagen">
+                <p class="mt-2">Sinopsis de "Sapiens": Un libro que explora la historia de la humanidad, desde la Edad de Piedra hasta el presente.</p>
+              </div>
+              <div class="col-md-2">
+                <img src="..\media\corte_llamas.png" class="img-fluid" alt="Descripción de la imagen">
+                <p class="mt-2">Sinopsis de "Cien años de soledad": La historia de la familia Buendía, que vive en el ficticio pueblo de Macondo.</p>
+              </div>
+              <div class="col-md-2">
+                <img src="..\media\corte_niebla.png" class="img-fluid" alt="Descripción de la imagen">
+                <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+              </div>
+              <div class="col-md-2">
+                <img src="..\media\trono_cristal.png" class="img-fluid" alt="Descripción de la imagen">
+                <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+              </div>
+              <div class="col-md-2">
+                <img src="..\media\corona_medianoche.png" class="img-fluid" alt="Descripción de la imagen">
+                <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+              </div>
+              <div class="col-md-2">
+                <img src="..\media\corte_alas.png" class="img-fluid" alt="Descripción de la imagen">
+                <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+              </div>
+            </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="..\media\imperio_tormentas.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">Sinopsis de "Sapiens": Un libro que explora la historia de la humanidad, desde la Edad de Piedra hasta el presente.</p>
+          </div>
+          <div class="col-md-2">
+            <img src="..\media\reina_sombras.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">Sinopsis de "Cien años de soledad": La historia de la familia Buendía, que vive en el ficticio pueblo de Macondo.</p>
+          </div>
+          <div class="col-md-2">
+            <img src="..\media\reino_cenizas.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+          </div>
+          <div class="col-md-2">
+            <img src="..\media\torre_alba.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+          </div>
+          <div class="col-md-2">
+            <img src="..\media\alaska.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+          </div>
+          <div class="col-md-2">
+            <img src="..\media\mapa_anhelos.png" class="img-fluid" alt="Descripción de la imagen">
+            <p class="mt-2">Sinopsis de "El Alquimista": La travesía de un joven pastor en busca de su destino y de un tesoro.</p>
+          </div>
+        </div>
+  </div>
+      
+  
+            <!-- Servicios -->
+            <section id="servicios" class="my-5">
+                <h2 class="mb-4 centrar">Nuestros Servicios</h2>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <i class="bi bi-truck services-icon"></i>
+                        <h4>Envíos Rápidos</h4>
+                        <p>Recibe tus libros en tiempo récord, directamente en la puerta de tu casa.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="bi bi-bookmark-heart services-icon"></i>
+                        <h4>Selección Especial</h4>
+                        <p>Descubre libros cuidadosamente seleccionados para todos los gustos.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="bi bi-headset services-icon"></i>
+                        <h4>Soporte 24/7</h4>
+                        <p>Estamos aquí para ayudarte en cualquier momento con tus consultas.</p>
+                    </div>
+                </div>
+            </section>
+
+      
+</body>
+</html>
