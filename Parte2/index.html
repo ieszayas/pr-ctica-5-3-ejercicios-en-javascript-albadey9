@@ -18,9 +18,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
     <script src="myScript.js"></script>
 
-    <style>
-        /* Personaliza estilos adicionales si lo necesitas */
-    </style>
 </head>
 
 <body>
@@ -62,16 +59,17 @@
                     </li>
                     <li class="nav-item">
                         <!-- Botón Modo Oscuro/Claro en el menú -->
-                        <button id="bot_oscuro_claro" class="btn btn-outline-light">Modo Oscuro/Claro</button>
+                        <button id="bot_oscuro_claro" class="btn btn-outline-light">Modo Oscuro</button>
                     </li>
 
 
                 </ul>
-                
-                <form class="d-flex" id="searchInput" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" id="searchInput" placeholder="Buscar" aria-label="Search">
                     <button class="btn btn-outline-light" type="submit">Buscar</button>
                 </form>
+                
             </div>
         </div>
     </nav>
@@ -217,13 +215,13 @@
                         <input class="form-check-input" type="checkbox" id="acepto" required>
                         <label class="form-check-label" for="acepto">Acepto los términos y condiciones</label>
                     </div>
-                    
+
                     <!-- Botón Enviar -->
                     <button type="submit" id="enviarBtn" class="btn btn-success">Enviar</button>
                     <!-- Botón Limpiar -->
                     <button type="button" id="limpiarBtn" class="btn btn-danger ms-2">Limpiar</button>
 
-                    
+
 
                 </form>
             </div>
@@ -253,82 +251,97 @@
             </div>
 
 
+           <!-- Modal para ver la imagen en grande con navegación -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <!-- Contenedor de la imagen -->
+          <img id="modalImage" src="" class="img-fluid" alt="Imagen Ampliada">
+        </div>
+        <div class="modal-footer">
+          <button id="prevImage" class="btn btn-secondary">Anterior</button>
+          <button id="nextImage" class="btn btn-secondary">Siguiente</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
             <!-- Carrusel de imágenes -->
-            <section id="carrusel" class="my-5">
-                <h2 class="mb-4 centrar">Galería de Portadas</h2>
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                            aria-label="Slide 4"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
-                            aria-label="Slide 5"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
-                            aria-label="Slide 6"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="..\media\1984.png" class="d-block w-300" alt="Libro 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="..\media\sapiens.png" class="d-block w-300" alt="Libro 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="..\media\lasombradelviento.png" class="d-block w-300" alt="Libro 3">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="..\media\principito.png" class="d-block w-300" alt="Libro 4">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="..\media\elalquimista.png" class="d-block w-300" alt="Libro 5">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="..\media\cienañossoledad.png" class="d-block w-300" alt="Libro 6">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                </div>
-            </section>
+<section id="carrusel" class="my-5">
+    <h2 class="mb-4 centrar">Galería de Portadas</h2>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="..\media\1984.png" class="d-block w-300" alt="Libro 1" data-bs-toggle="modal" data-bs-target="#imageModal">
+            </div>
+            <div class="carousel-item">
+                <img src="..\media\sapiens.png" class="d-block w-300" alt="Libro 2" data-bs-toggle="modal" data-bs-target="#imageModal">
+            </div>
+            <div class="carousel-item">
+                <img src="..\media\lasombradelviento.png" class="d-block w-300" alt="Libro 3" data-bs-toggle="modal" data-bs-target="#imageModal">
+            </div>
+            <div class="carousel-item">
+                <img src="..\media\principito.png" class="d-block w-300" alt="Libro 4" data-bs-toggle="modal" data-bs-target="#imageModal">
+            </div>
+            <div class="carousel-item">
+                <img src="..\media\elalquimista.png" class="d-block w-300" alt="Libro 5" data-bs-toggle="modal" data-bs-target="#imageModal">
+            </div>
+            <div class="carousel-item">
+                <img src="..\media\cienañossoledad.png" class="d-block w-300" alt="Libro 6" data-bs-toggle="modal" data-bs-target="#imageModal">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+</section>
+
 
             <!-- Reloj Digital -->
             <div id="reloj" style="font-size: 2rem; font-weight: bold;"></div>
 
-            <!-- Servicios -->
-            <section id="servicios" class="my-5">
-                <h2 class="mb-4 centrar">Nuestros Servicios</h2>
-                <div class="row text-center">
-                    <div class="col-md-4">
-                        <i class="bi bi-truck services-icon"></i>
-                        <h4>Envíos Rápidos</h4>
-                        <p>Recibe tus libros en tiempo récord, directamente en la puerta de tu casa.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <i class="bi bi-bookmark-heart services-icon"></i>
-                        <h4>Selección Especial</h4>
-                        <p>Descubre libros cuidadosamente seleccionados para todos los gustos.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <i class="bi bi-headset services-icon"></i>
-                        <h4>Soporte 24/7</h4>
-                        <p>Estamos aquí para ayudarte en cualquier momento con tus consultas.</p>
-                    </div>
-                </div>
-            </section>
+           
+    <!-- Servicios -->
+    <section id="servicios" class="my-5" style="background-color: #b6a792;">
+        <h2 class="mb-4 centrar">Nuestros Servicios</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="bi bi-truck services-icon"></i>
+                <h4>Envíos Rápidos</h4>
+                <p>Recibe tus libros en tiempo récord, directamente en la puerta de tu casa.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-bookmark-heart services-icon"></i>
+                <h4>Selección Especial</h4>
+                <p>Descubre libros cuidadosamente seleccionados para todos los gustos.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-headset services-icon"></i>
+                <h4>Soporte 24/7</h4>
+                <p>Estamos aquí para ayudarte en cualquier momento con tus consultas.</p>
+            </div>
+        </div>
+    </section>
 
+            <script src="oscuro.js"></script>
 </body>
 
 </html>

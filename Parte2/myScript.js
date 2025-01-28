@@ -1,87 +1,107 @@
 document.addEventListener('DOMContentLoaded', function () {
+    
+    // Lógica para "Leer más..."
+    const readMoreLinks = document.querySelectorAll('.read-more');
+    readMoreLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const sinopsisContainer = this.previousElementSibling;
+            const fullDesc = sinopsisContainer.querySelector('.full-description');
+
+            if (fullDesc.style.display === 'none') {
+                fullDesc.style.display = 'inline';  // Mostrar la descripción completa
+                this.textContent = 'Leer menos...';  // Cambiar texto del botón
+            } else {
+                fullDesc.style.display = 'none';  // Ocultar la descripción completa
+                this.textContent = 'Leer más...';  // Volver a texto inicial
+            }
+        });
+    });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    // Lógica para el carrusel y la visualización en el modal
+    const carouselImages = document.querySelectorAll('#carouselExampleIndicators .carousel-item img');
+    const modalImage = document.getElementById('modalImage');
+    let currentIndex = 0;
+
+    carouselImages.forEach((image, index) => {
+        image.addEventListener('click', () => {
+            modalImage.src = image.src;  // Establece la imagen en el modal
+            currentIndex = index;  // Establece el índice de la imagen seleccionada
+        });
+    });
+
+    document.getElementById('nextImage').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % carouselImages.length;  // Ciclado al inicio
+        modalImage.src = carouselImages[currentIndex].src;
+    });
+
+    document.getElementById('prevImage').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;  // Ciclado al final
+        modalImage.src = carouselImages[currentIndex].src;
+    });
+
+});
+document.addEventListener('DOMContentLoaded', function () {
+    // Función para actualizar el reloj
+    function actualizarReloj() {
+        const relojDiv = document.getElementById('reloj');
+        const fecha = new Date();
+        let horas = fecha.getHours();
+        let minutos = fecha.getMinutes();
+        let segundos = fecha.getSeconds();
+        horas = horas < 10 ? '0' + horas : horas;
+        minutos = minutos < 10 ? '0' + minutos : minutos;
+        segundos = segundos < 10 ? '0' + segundos : segundos;
+        relojDiv.textContent = `${horas}:${minutos}:${segundos}`;
+    }
+    setInterval(actualizarReloj, 1000);
+    actualizarReloj();  // Mostrar el reloj al cargar la página
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    function buscarLibro() {
+        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        const tableRows = document.querySelectorAll("#tabla-libros tbody tr");
+    
+        tableRows.forEach(function (row) {
+            const cells = row.getElementsByTagName("td");
+            let match = false;
+    
+            // Iterar por cada celda en la fila y buscar el término
+            for (let i = 0; i < cells.length; i++) {
+                const cellText = cells[i].textContent.toLowerCase();
+                if (cellText.includes(searchTerm)) {
+                    match = true;  // Si encuentra una coincidencia, marca la fila
+                    break;
+                }
+            }
+    
+            // Mostrar u ocultar la fila según si hay coincidencia
+            row.style.display = match ? "" : "none";
+        });
+    }
+    
+    // Añadir evento de escucha para el input, para realizar búsqueda en tiempo real
+    document.getElementById("searchInput").addEventListener('input', buscarLibro);
+    
+    // Evitar que el formulario recargue la página al hacer submit (si es necesario)
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evitar recarga al hacer submit
+        buscarLibro(); // Llamar a la función de búsqueda
+    });
+    
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contactForm');
     const limpiarBtn = document.getElementById('limpiarBtn');
     const enviarBtn = document.getElementById('enviarBtn');
     const toastBorrar = new bootstrap.Toast(document.getElementById('eraseToast'));
     const toastSuccess = new bootstrap.Toast(document.getElementById('successToast'));
 
-    // Agregar el comportamiento de "Leer más..."
-    const readMoreLinks = document.querySelectorAll('.read-more');
-
-    readMoreLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-
-            // Selecciona el contenedor de las descripciones
-            const sinopsisContainer = this.previousElementSibling;
-            const fullDesc = sinopsisContainer.querySelector('.full-description');
-
-            // Cambiar el estado de visibilidad de la descripción completa
-            if (fullDesc.style.display === 'none') {
-                fullDesc.style.display = 'inline'; // Mostrar la descripción completa
-                this.textContent = 'Leer menos...'; // Cambiar texto del botón
-            } else {
-                fullDesc.style.display = 'none'; // Ocultar la descripción completa
-                this.textContent = 'Leer más...'; // Volver a texto inicial
-            }
-        });
-    });
-
-
-    // Función para actualizar el reloj
-    function actualizarReloj() {
-        const relojDiv = document.getElementById('reloj');
-        const fecha = new Date();
-
-        let horas = fecha.getHours();
-        let minutos = fecha.getMinutes();
-        let segundos = fecha.getSeconds();
-
-        // Formato de 2 dígitos
-        horas = horas < 10 ? '0' + horas : horas;
-        minutos = minutos < 10 ? '0' + minutos : minutos;
-        segundos = segundos < 10 ? '0' + segundos : segundos;
-
-        // Mostrar el tiempo en formato HH:MM:SS
-        relojDiv.textContent = `${horas}:${minutos}:${segundos}`;
-    }
-
-    // Actualizar el reloj cada segundo
-    setInterval(actualizarReloj, 1000);
-
-    // Llamar a la función para mostrar el reloj al cargar la página
-    actualizarReloj();
-
-    // Función para buscar en la tabla
-    function buscarLibro() {
-        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
-        const tableRows = document.querySelectorAll("#tabla-libros tbody tr");
-
-        tableRows.forEach(function (row) {
-            const cells = row.getElementsByTagName("td");
-            let match = false;
-            for (let i = 0; i < cells.length; i++) {
-                const cellText = cells[i].textContent.toLowerCase();
-                if (cellText.includes(searchTerm)) {
-                    match = true;
-                    break;
-                }
-            }
-
-            // Mostrar u ocultar la fila en función de si hay una coincidencia
-            if (match) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-    }
-
-    // Agregar el evento al campo de búsqueda
-    const searchInput = document.getElementById("searchInput");
-    searchInput.addEventListener('input', buscarLibro);  // Llamamos a buscarLibro cada vez que el usuario escriba
-
-    // Función para validar texto (nombre y mensaje)
+    // Validación de formulario
     function validarTexto(id) {
         const input = document.getElementById(id);
         const regex = /^[a-zA-Z\s]+$/;
@@ -98,7 +118,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Verificar si al menos un checkbox está seleccionado
     function validarCheckbox() {
         const checkbox = document.getElementById('acepto');
         if (!checkbox.checked) {
@@ -108,12 +127,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return true;
     }
 
-    // Validación del teléfono (solo números y 9 dígitos)
     function validarTelefono() {
         const telefono = document.getElementById('telefono');
-        const regex = /^[0-9]{9}$/;  // Solo 9 dígitos
+        const regex = /^[0-9]{9}$/; // Solo 9 dígitos
         const errorElement = document.getElementById('telefono-error');
-
         if (!regex.test(telefono.value)) {
             errorElement.style.display = 'block';
             telefono.classList.add('is-invalid');
@@ -125,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Validación de la edad (entre 18 y 99)
     function validarEdad() {
         const edad = document.getElementById('edad');
         if (edad.value < 18 || edad.value > 99) {
@@ -139,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Verificar que la fecha esté en un rango válido (entre 1900 y 2024)
     function validarFecha() {
         const fecha = document.getElementById('fecha');
         const fechaValor = new Date(fecha.value);
@@ -154,12 +169,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     limpiarBtn.addEventListener('click', function () {
-        toastBorrar.show();  // Mostrar el Toast de limpieza
-        form.reset();  // Esto limpia el formulario
+        toastBorrar.show();
+        form.reset();
     });
 
-    // Validar formulario antes de enviar
-    Event.addEventListener('submit', function (event) {
+    // Validación del formulario al enviarlo
+    enviarBtn.addEventListener('submit', function (event) {
         event.preventDefault();  // Prevenir el envío del formulario
 
         // Limpiar los mensajes de error previos
@@ -174,33 +189,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const isEdadValida = validarEdad();
         const isCheckboxValido = validarCheckbox();
 
-        // Si todas las validaciones son correctas, enviar el formulario y mostrar el toast de éxito
+        // Si todas las validaciones son correctas, mostrar el toast de éxito
         if (isNombreValido && isMensajeValido && isFechaValida && isTelefonoValido && isEdadValida && isCheckboxValido) {
-            // Aquí enviarías el formulario (en un caso real, tal vez una llamada AJAX, o solo `form.submit()`)
             toastSuccess.show();  // Mostrar el Toast de éxito
-            form.reset();
+            form.reset();  // Limpiar el formulario
 
-            // Esperar 4 segundos antes de ocultar el toast
+            // Ocultar el toast después de 4 segundos
             setTimeout(function () {
                 toastSuccess.hide();
             }, 4000);
         }
     });
-    const toggleBtn = document.getElementById('bot_oscuro_claro');
-    if (localStorage.getItem('modo') === 'oscuro') {
-        document.body.classList.add('modo-oscuro');
-    }
-
-    toggleBtn.addEventListener('click', function () {
-        document.body.classList.toggle('modo-oscuro');
-
-        if (document.body.classList.contains('modo-oscuro')) {
-            localStorage.setItem('modo', 'oscuro');
-        } else {
-            localStorage.setItem('modo', 'claro');
-        }
-    });
-
-
-
 });

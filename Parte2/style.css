@@ -19,51 +19,55 @@ body {
 .negrita {
     font-weight: bold;
 }
-
 body.modo-oscuro {
-    background-color: #5e4d36;
-    color: #ffffff;
+    background-color: #212529; /* Fondo oscuro para toda la página */
+    color: white; /* Texto blanco en general */
+}
+
+body.modo-oscuro .hero {
+    background-color: #333; /* Fondo oscuro en la hero section */
+    color: white; /* Texto blanco en la hero section */
 }
 
 body.modo-oscuro .navbar {
-    background-color: #5e4d36;
-    /* Fondo oscuro para la barra de navegación */
+    background-color: #343a40; /* Fondo oscuro para la barra de navegación */
 }
 
-body.modo-oscuro .btn-primary {
-    background-color: #ffffff;
-    /* Cambiar el color de los botones */
+body.modo-oscuro .navbar .nav-link {
+    color: #ffffff; /* Cambiar color de los enlaces de la barra de navegación */
 }
 
-body.modo-oscuro .btn-warning {
-    background-color: #5e4d36;
-    /* Color del botón en modo oscuro */
+body.modo-oscuro .navbar .nav-link:hover {
+    color: #ccc; /* Cambiar color de los enlaces al pasar el mouse */
 }
 
-body.modo-oscuro .table-bordered,
-body.modo-oscuro .table-striped {
-    background-color: #3e2c1c;
-    /* Fondo marrón para la tabla */
-    color: #fff;
-    /* Cambiar color de texto a blanco */
+body.modo-oscuro .btn-outline-light {
+    border-color: #ffffff; /* Cambiar el borde de los botones */
+    color: #ffffff; /* Cambiar el texto de los botones */
 }
 
-body.modo-oscuro .table-bordered th,
-body.modo-oscuro .table-striped th {
-    background-color: #4a3622;
-    /* Fondo más oscuro para las cabeceras de la tabla */
+body.modo-oscuro .btn-outline-light:hover {
+    background-color: #ffffff; /* Cambiar el fondo de los botones al hacer hover */
+    color: #333; /* Cambiar el texto al hacer hover */
 }
 
-body.modo-oscuro .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #5d3d2e;
-    /* Fondo marrón más claro en las filas impares */
+/* Cambiar el fondo de las imágenes de los libros en modo oscuro */
+body.modo-oscuro img {
+    filter: brightness(0.7); /* Oscurecer las imágenes en modo oscuro */
 }
 
-body.modo-oscuro .table-striped tbody tr:hover {
-    background-color: #8e6b4d;
-    /* Fondo marrón claro al hacer hover */
+body.modo-oscuro .read-more {
+    color: #ffffff; /* Cambiar color del enlace 'Leer más' */
 }
 
+body.modo-oscuro .read-more:hover {
+    color: #ccc; /* Cambiar color al pasar el mouse sobre 'Leer más' */
+}
+
+
+.texto-justificado {
+    text-align: justify;
+}
 
 .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
     background-color: #887152;
