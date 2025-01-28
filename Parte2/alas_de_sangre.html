@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de Libros</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <script src="myScript.js"></script>
+
+    <style>
+        /* Personaliza estilos adicionales si lo necesitas */
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #b6a792;">
+        <div class="container-fluid">
+            <a class="navbar-brand negrita" href="index.html">LibrosOnline</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalogo.html" target="_blank">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#carrusel">Galería</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #b6a792;">
+                            <li><a class="dropdown-item" href="#">Ficción</a></li>
+                            <li><a class="dropdown-item" href="#">No ficción</a></li>
+                            <li><a class="dropdown-item" href="#">Infantil</a></li>
+                            <li><a class="dropdown-item" href="#">Fantasía</a></li>
+                            <li><a class="dropdown-item" href="#">Autoayuda</a></li>
+                            <li><a class="dropdown-item" href="#">Historia</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Botón Modo Oscuro/Claro en el menú -->
+                        <button id="bot_oscuro_claro" class="btn btn-outline-light">Modo Oscuro/Claro</button>
+                    </li>
+
+
+                </ul>
+
+                <form class="d-flex" id="searchInput" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <div class="hero negrita">
+        <h1>Descubre los mejores libros al mejor precio</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- Columna de la imagen y sinopsis -->
+            <div class="col-md-9 d-flex align-items-center">
+                <div class="row">
+                    <!-- Imagen a la izquierda -->
+                    <div class="col-md-5">
+                        <img src="..\media\alas-de-sangre-portada.png" class="img-fluid" alt="Descripción de la imagen">
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- Contenedor envolvente para las descripciones -->
+                        <div class="sinopsis-container">
+                            <span class="short-description"><p class="negrita">ALAS DE SANGRE (EMPIREO 1)</p> 
+                                <p>Vuela... o muere. El nuevo fenómeno de fantasía juvenil del que todo el mundo habla.</p>
+                                <p>Continúa la saga Empíreo con Alas de hierro, a la venta el 21 de febrero.</p>
+
+                                <p>«¡La novela de fantasía más brutalmente adictiva que he leído en una década!» Tracy
+                                Wolff, autora de la Serie Crave</p></span>
+                            <span class="full-description" style="display:none;">
+
+
+                                Violet Sorrengail creía que se uniría al Cuadrante de los Escribas para vivir una vida
+                                tranquila, sin embargo, por órdenes de su madre, debe unirse a los miles de candidatos
+                                que, en el Colegio de Guerra de Basgiath, luchan por formar parte de la élite de
+                                Navarre: el Cuadrante de los Jinetes de dragones.
+
+                                Cuando eres más pequeña y frágil que los demás tu vida corre peligro, porque los
+                                dragones no se vinculan con humanos débiles. Además, con más jinetes que dragones
+                                disponibles, muchos la matarían con tal de mejorar sus probabilidades de éxito; y hay
+                                otros, como el despiadado Xaden Riorson, el líder de ala más poderoso del Cuadrante de
+                                Jinetes, que la asesinarían simplemente por ser la hija de la comandante general. Para
+                                sobrevivir, necesitará aprovechar al máximo todo su ingenio. Mientras la guerra se torna
+                                más letal Violet sospecha que los líderes de Navarre esconden un terrible secreto...
+                            </span>
+                        </div>
+                        <a href="#" class="read-more">Leer más...</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Columna del formulario -->
+            <div class="col-md-3">
+                <h2 class="mb-4">Contáctanos</h2>
+                <form id="contactForm">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <div class="invalid-feedback" id="nombre-error">El nombre no puede contener números ni
+                            caracteres especiales.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" pattern="[0-9]{9}"
+                            required>
+                        <div class="invalid-feedback">Por favor, ingresa un teléfono válido de 10 dígitos.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edad" class="form-label">Edad</label>
+                        <input type="number" class="form-control" id="edad" name="edad" min="18" max="99" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required></textarea>
+                        <div class="invalid-feedback" id="mensaje-error">El mensaje no puede contener números ni
+                            caracteres especiales.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="fecha" name="fecha" required>
+                        <div class="invalid-feedback" id="fecha-error">La fecha debe estar entre 1900 y 2005.</div>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="acepto" required>
+                        <label class="form-check-label" for="acepto">Acepto los términos y condiciones</label>
+                    </div>
+
+                    <!-- Botón Enviar -->
+                    <button type="submit" id="enviarBtn" class="btn btn-success">Enviar</button>
+                    <!-- Botón Limpiar -->
+                    <button type="button" id="limpiarBtn" class="btn btn-danger ms-2">Limpiar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast para la notificación de limpieza -->
+    <div id="eraseToast" class="toast position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Formulario</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Los campos del formulario han sido borrados.
+        </div>
+    </div>
+
+    <!-- Toast de confirmación de envío exitoso -->
+    <div id="successToast" class="toast position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Éxito</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            El formulario se ha enviado correctamente.
+        </div>
+    </div>
+
+
+    <!-- Contenedor Principal -->
+<div class="container my-5">
+    <div class="row">
+        <!-- Columna 2: Tabla de libros (4/4 de la página) -->
+        <div class="col-md-8">
+            <section id="tabla-libros">
+                <h2 class="mb-4 negrita">Información del libro</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-warning">
+                            <tr>
+                                <th colspan="2">Alas de Sangre</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <!-- Fila 1 -->
+                            <tr>
+                                <td>Traductor</td>
+                                <td>Graciela Romero Saldaña</td>
+                            </tr>
+                            <!-- Fila 2 -->
+                            <tr>
+                                <td>Editorial</td>
+                                <td>Editorial Planeta</td>
+                            </tr>
+                            <!-- Fila 3 -->
+                            <tr>
+                                <td>ISBN</td>
+                                <td>9788408279990</td>
+                            </tr>
+                            <!-- Fila 4 -->
+                            <tr>
+                                <td>Idioma</td>
+                                <td>Castellano</td>
+                            </tr>
+                            <!-- Fila 5 -->
+                            <tr>
+                                <td>Título original</td>
+                                <td>Fourth Wing (Empyrean 1)</td>
+                            </tr>
+                            <!-- Fila 6 -->
+                            <tr>
+                                <td>Número de páginas</td>
+                                <td>736</td>
+                            </tr>
+                            <!-- Fila 7 -->
+                            <tr>
+                                <td>Tiempo de lectura</td>
+                                <td>17h 39m</td>
+                            </tr>
+                            <!-- Fila 8 -->
+                            <tr>
+                                <td>Encuadernación</td>
+                                <td>Tapa dura</td>
+                            </tr>
+                            <!-- Fila 9 -->
+                            <tr>
+                                <td>Fecha de lanzamiento</td>
+                                <td>15/11/2023</td>
+                            </tr>
+                            <!-- Fila 10 -->
+                            <tr>
+                                <td>Año de edición</td>
+                                <td>2023</td>
+                            </tr>
+                            <!-- Fila 11 -->
+                            <tr>
+                                <td>Plaza de edición</td>
+                                <td>Barcelona</td>
+                            </tr>
+                            <!-- Fila 12 -->
+                            <tr>
+                                <td>Colección</td>
+                                <td>Planeta Internacional</td>
+                            </tr>
+                            <!-- Fila 13 -->
+                            <tr>
+                                <td>Serie/Saga</td>
+                                <td>Empireo</td>
+                            </tr>
+                            <!-- Fila 14 -->
+                            <tr>
+                                <td>Número</td>
+                                <td>1</td>
+                            </tr>
+                            <!-- Fila 15 -->
+                            <tr>
+                                <td>Alto</td>
+                                <td>23.0 cm</td>
+                            </tr>
+                            <!-- Fila 16 -->
+                            <tr>
+                                <td>Ancho</td>
+                                <td>15.0 cm</td>
+                            </tr>
+                            <!-- Fila 17 -->
+                            <tr>
+                                <td>Grueso</td>
+                                <td>4.9 cm</td>
+                            </tr>
+                            <!-- Fila 18 -->
+                            <tr>
+                                <td>Peso</td>
+                                <td>957.0 gr</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <!-- Servicios -->
+    <section id="servicios" class="my-5">
+        <h2 class="mb-4 centrar">Nuestros Servicios</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="bi bi-truck services-icon"></i>
+                <h4>Envíos Rápidos</h4>
+                <p>Recibe tus libros en tiempo récord, directamente en la puerta de tu casa.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-bookmark-heart services-icon"></i>
+                <h4>Selección Especial</h4>
+                <p>Descubre libros cuidadosamente seleccionados para todos los gustos.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-headset services-icon"></i>
+                <h4>Soporte 24/7</h4>
+                <p>Estamos aquí para ayudarte en cualquier momento con tus consultas.</p>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>

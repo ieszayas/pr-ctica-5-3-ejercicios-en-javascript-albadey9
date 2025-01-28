@@ -64,6 +64,7 @@ body.modo-oscuro .table-striped tbody tr:hover {
     /* Fondo marrón claro al hacer hover */
 }
 
+
 .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
     background-color: #887152;
     /* Cambia el fondo marron*/

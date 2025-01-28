@@ -5,27 +5,28 @@ document.addEventListener('DOMContentLoaded', function () {
     const toastBorrar = new bootstrap.Toast(document.getElementById('eraseToast'));
     const toastSuccess = new bootstrap.Toast(document.getElementById('successToast'));
 
-     // Agregar el comportamiento de "Leer más..."
-  const readMoreLinks = document.querySelectorAll('.read-more');
+    // Agregar el comportamiento de "Leer más..."
+    const readMoreLinks = document.querySelectorAll('.read-more');
 
-  readMoreLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-      event.preventDefault();
-      const shortDesc = this.previousElementSibling.querySelector('.short-description');
-      const fullDesc = this.previousElementSibling.querySelector('.full-description');
-      
-      // Cambiar el estado de visibilidad de las sinopsis
-      if (fullDesc.style.display === 'none') {
-        fullDesc.style.display = 'inline';
-        shortDesc.style.display = 'none';
-        this.textContent = 'Leer menos...';
-      } else {
-        fullDesc.style.display = 'none';
-        shortDesc.style.display = 'inline';
-        this.textContent = 'Leer más...';
-      }
+    readMoreLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Selecciona el contenedor de las descripciones
+            const sinopsisContainer = this.previousElementSibling;
+            const fullDesc = sinopsisContainer.querySelector('.full-description');
+
+            // Cambiar el estado de visibilidad de la descripción completa
+            if (fullDesc.style.display === 'none') {
+                fullDesc.style.display = 'inline'; // Mostrar la descripción completa
+                this.textContent = 'Leer menos...'; // Cambiar texto del botón
+            } else {
+                fullDesc.style.display = 'none'; // Ocultar la descripción completa
+                this.textContent = 'Leer más...'; // Volver a texto inicial
+            }
+        });
     });
-  });
+
 
     // Función para actualizar el reloj
     function actualizarReloj() {
@@ -185,24 +186,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 4000);
         }
     });
-
-    // Funcionalidad para cambiar entre modo claro y modo oscuro
     const toggleBtn = document.getElementById('bot_oscuro_claro');
-
-    // Comprobar el modo preferido guardado (si existe en el localStorage)
     if (localStorage.getItem('modo') === 'oscuro') {
         document.body.classList.add('modo-oscuro');
     }
 
-    // Alternar entre modo claro y modo oscuro
     toggleBtn.addEventListener('click', function () {
         document.body.classList.toggle('modo-oscuro');
 
-        // Guardar la preferencia en el localStorage
         if (document.body.classList.contains('modo-oscuro')) {
             localStorage.setItem('modo', 'oscuro');
         } else {
             localStorage.setItem('modo', 'claro');
         }
     });
+
+
+
 });
