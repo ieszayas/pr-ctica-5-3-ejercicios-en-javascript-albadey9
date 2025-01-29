@@ -1,23 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
-    
-    // Lógica para "Leer más..."
-    const readMoreLinks = document.querySelectorAll('.read-more');
-    readMoreLinks.forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();
-            const sinopsisContainer = this.previousElementSibling;
-            const fullDesc = sinopsisContainer.querySelector('.full-description');
 
-            if (fullDesc.style.display === 'none') {
-                fullDesc.style.display = 'inline';  // Mostrar la descripción completa
-                this.textContent = 'Leer menos...';  // Cambiar texto del botón
-            } else {
-                fullDesc.style.display = 'none';  // Ocultar la descripción completa
-                this.textContent = 'Leer más...';  // Volver a texto inicial
-            }
-        });
-    });
-});
 document.addEventListener('DOMContentLoaded', function () {
     // Lógica para el carrusel y la visualización en el modal
     const carouselImages = document.querySelectorAll('#carouselExampleIndicators .carousel-item img');
@@ -42,57 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
-document.addEventListener('DOMContentLoaded', function () {
-    // Función para actualizar el reloj
-    function actualizarReloj() {
-        const relojDiv = document.getElementById('reloj');
-        const fecha = new Date();
-        let horas = fecha.getHours();
-        let minutos = fecha.getMinutes();
-        let segundos = fecha.getSeconds();
-        horas = horas < 10 ? '0' + horas : horas;
-        minutos = minutos < 10 ? '0' + minutos : minutos;
-        segundos = segundos < 10 ? '0' + segundos : segundos;
-        relojDiv.textContent = `${horas}:${minutos}:${segundos}`;
-    }
-    setInterval(actualizarReloj, 1000);
-    actualizarReloj();  // Mostrar el reloj al cargar la página
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    function buscarLibro() {
-        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
-        const tableRows = document.querySelectorAll("#tabla-libros tbody tr");
-    
-        tableRows.forEach(function (row) {
-            const cells = row.getElementsByTagName("td");
-            let match = false;
-    
-            // Iterar por cada celda en la fila y buscar el término
-            for (let i = 0; i < cells.length; i++) {
-                const cellText = cells[i].textContent.toLowerCase();
-                if (cellText.includes(searchTerm)) {
-                    match = true;  // Si encuentra una coincidencia, marca la fila
-                    break;
-                }
-            }
-    
-            // Mostrar u ocultar la fila según si hay coincidencia
-            row.style.display = match ? "" : "none";
-        });
-    }
-    
-    // Añadir evento de escucha para el input, para realizar búsqueda en tiempo real
-    document.getElementById("searchInput").addEventListener('input', buscarLibro);
-    
-    // Evitar que el formulario recargue la página al hacer submit (si es necesario)
-    document.querySelector("form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Evitar recarga al hacer submit
-        buscarLibro(); // Llamar a la función de búsqueda
-    });
-    
-});
-
 
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contactForm');
