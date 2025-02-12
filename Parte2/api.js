@@ -1,60 +1,70 @@
-// Función para obtener los libros de Google Books API
-function fetchBooks(query) {
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
-
-    // Realizar la solicitud fetch a la API
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            displayBooks(data.items); // Llamamos a la función que muestra los libros
-        })
-        .catch(error => {
-            console.error('Error al obtener los libros:', error);
-        });
-}
-
-// Función para mostrar los libros en el DOM
-function displayBooks(books) {
-    const bookList = document.getElementById('book-list');
-    bookList.innerHTML = ''; // Limpiar cualquier contenido previo
-
-    if (!books || books.length === 0) {
-        bookList.innerHTML = '<p>No se encontraron libros para esta búsqueda.</p>';
-        return;
+// Función para obtener los libros desde la API de Open Library
+async function fetchBooks() {
+    const url = 'https://openlibrary.org/subjects/programming.json?limit=30'; // API de Open Library
+  
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+  
+      // Verifica si los datos son correctos
+      console.log(data);
+  
+      // Mostrar libros en la galería y en la tabla
+      displayBooksInGallery(data.works);
+      displayBooksInTable(data.works);
+    } catch (error) {
+      console.error('Error al obtener los libros:', error);
     }
-
-    // Recorrer los libros y crear elementos HTML para mostrarlos
+  }
+  // Función para mostrar los libros en la galería (cards)
+function displayBooksInGallery(books) {
+    const productGallery = document.getElementById('productGallery');
+    productGallery.innerHTML = ''; // Limpiar la galería antes de agregar nuevos productos
+  
     books.forEach(book => {
-        const bookDiv = document.createElement('div');
-        bookDiv.classList.add('book');
-
-        const title = book.volumeInfo.title;
-        const author = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Desconocido';
-        const imageUrl = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : '';
-
-        bookDiv.innerHTML = `
-            <h2>${title}</h2>
-            <p>Autor: ${author}</p>
-            ${imageUrl ? `<img src="${imageUrl}" alt="${title}" />` : ''}
-        `;
-
-        bookList.appendChild(bookDiv);
+      const { title, cover_id, author_name, first_publish_year } = book;
+  
+      const coverImage = cover_id ? `https://covers.openlibrary.org/b/id/${cover_id}-M.jpg` : 'https://via.placeholder.com/150';
+      
+      const card = document.createElement('div');
+      card.classList.add('col-md-3', 'mb-4');
+      card.innerHTML = `
+        <div class="card">
+          <img src="${coverImage}" class="card-img-top" alt="${title}">
+          <div class="card-body">
+            <h5 class="card-title">${title}</h5>
+            <p class="card-text">Autor: ${author_name ? author_name.join(', ') : 'Desconocido'}</p>
+            <p class="card-text">Publicado en: ${first_publish_year}</p>
+            <a href="#" class="btn btn-primary">Leer más</a>
+          </div>
+        </div>
+      `;
+      
+      productGallery.appendChild(card);
     });
-}
+  }
 
-// Función para manejar el evento de búsqueda
-function handleSearch(event) {
-    event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
-    const query = document.getElementById('searchInput').value;
-    if (query) {
-        fetchBooks(query); // Buscar libros con el término ingresado
-    } else {
-        alert("Por favor ingresa un término de búsqueda.");
-    }
-}
-
-// Añadir un listener al formulario de búsqueda
-document.getElementById('searchForm').addEventListener('submit', handleSearch);
-
-// Búsqueda por defecto al cargar la página
-fetchBooks('fantasía');
+  // Función para mostrar los libros en la tabla
+function displayBooksInTable(books) {
+    const productTableBody = document.getElementById('productTable').getElementsByTagName('tbody')[0];
+    productTableBody.innerHTML = ''; // Limpiar la tabla antes de agregar nuevos productos
+  
+    books.forEach(book => {
+      const { title, author_name, first_publish_year } = book;
+  
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${title}</td>
+        <td>${author_name ? author_name.join(', ') : 'Desconocido'}</td>
+        <td>${first_publish_year || 'No disponible'}</td>
+      `;
+      
+      productTableBody.appendChild(row);
+    });
+  }
+  window.onload = function() {
+    fetchBooks(); // Llama la función para obtener y mostrar los libros
+  };
+  
+  
+  
