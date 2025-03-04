@@ -1,0 +1,109 @@
+/* Cambios generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.hero {
+    background-color: #F5E7C1;
+    color: rgb(0, 0, 0);
+    padding: 30px 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container {
+    margin-top: 40px;
+}
+
+.negrita {
+    font-weight: bold;
+}
+body.modo-oscuro {
+    background-color: #212529; /* Fondo oscuro para toda la página */
+    color: white; /* Texto blanco en general */
+}
+
+body.modo-oscuro .hero {
+    background-color: #333; /* Fondo oscuro en la hero section */
+    color: white; /* Texto blanco en la hero section */
+}
+
+body.modo-oscuro .navbar {
+    background-color: #343a40; /* Fondo oscuro para la barra de navegación */
+}
+
+body.modo-oscuro .navbar .nav-link {
+    color: #ffffff; /* Cambiar color de los enlaces de la barra de navegación */
+}
+
+body.modo-oscuro .navbar .nav-link:hover {
+    color: #ccc; /* Cambiar color de los enlaces al pasar el mouse */
+}
+
+body.modo-oscuro .btn-outline-light {
+    border-color: #ffffff; /* Cambiar el borde de los botones */
+    color: #ffffff; /* Cambiar el texto de los botones */
+}
+
+body.modo-oscuro .btn-outline-light:hover {
+    background-color: #ffffff; /* Cambiar el fondo de los botones al hacer hover */
+    color: #333; /* Cambiar el texto al hacer hover */
+}
+
+/* Cambiar el fondo de las imágenes de los libros en modo oscuro */
+body.modo-oscuro img {
+    filter: brightness(0.7); /* Oscurecer las imágenes en modo oscuro */
+}
+
+body.modo-oscuro .read-more {
+    color: #ffffff; /* Cambiar color del enlace 'Leer más' */
+}
+
+body.modo-oscuro .read-more:hover {
+    color: #ccc; /* Cambiar color al pasar el mouse sobre 'Leer más' */
+}
+
+
+.texto-justificado {
+    text-align: justify;
+}
+
+.navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+    background-color: #887152;
+    /* Cambia el fondo marron*/
+    color: white;
+    /* Cambia el color del texto a blanco */
+}
+
+.centrar {
+    padding: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.services-icon {
+    font-size: 3rem;
+    color: #0d6efd;
+}
+
+.carousel-inner img {
+    object-fit: cover;
+    /* Ajusta la imagen sin distorsión */
+    margin: 0 auto;
+    /* Centra las imágenes */
+}
+
+#reloj {
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+#boton_grafico {
+    background-color: #887152;
+    /* Cambia el fondo marron*/
+    color: white;
+    /* Cambia el color del texto a blanco */
+}

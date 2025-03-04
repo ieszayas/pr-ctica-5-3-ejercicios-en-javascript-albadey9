@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Gráfico de Fantasía</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        #chartContainer {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Informe Gráfico de Libros de Fantasía</h1>
+    <div id="chartContainer">
+        <canvas id="fantasyChart"></canvas>
+    </div>
+
+    <script>
+        // Obtener los datos de la API de Open Library
+        fetch('https://openlibrary.org/subjects/fantasy.json?limit=20')
+            .then(response => response.json())
+            .then(data => {
+                // Procesar los datos obtenidos
+                const bookTitles = data.works.map(work => work.title);
+                const bookAuthors = data.works.map(work => work.authors ? work.authors.map(author => author.name).join(', ') : 'Desconocido');
+                const bookYears = data.works.map(work => work.first_publish_year || 'Desconocido');
+
+                // Crear el gráfico de barras con Chart.js
+                const ctx = document.getElementById('fantasyChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: bookTitles, // Los títulos de los libros
+                        datasets: [{
+                            label: 'Primer año de publicación',
+                            data: bookYears.map(year => year === 'Desconocido' ? 0 : year), // Usamos 0 para los años desconocidos
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        },
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    title: function(tooltipItem) {
+                                        const index = tooltipItem[0].dataIndex;
+                                        return `${bookTitles[index]} por ${bookAuthors[index]}`; // Mostrar el autor al hacer hover
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.log('Error al cargar los datos de la API: ', error));
+    </script>
+</body>
+</html>

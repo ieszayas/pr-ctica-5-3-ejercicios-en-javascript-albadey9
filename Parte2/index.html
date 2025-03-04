@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de Libros</title>
+    <!-- Enlace a la hoja de estilo de Bootstrap para mejorar el diseño -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a los iconos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Enlace al archivo JS de Bootstrap (necesario para las interacciones con los elementos de la UI) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Enlace a un archivo CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Enlace a otro archivo JS (si se requiere alguna función personalizada adicional) -->
+    <script src="myScript.js"></script>
+
+</head>
+
+<body>
+    <!-- Barra de navegación (Navbar) -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #b6a792;">
+        <div class="container-fluid">
+            <!-- Título del sitio -->
+            <a class="navbar-brand negrita" href="#">LibrosOnline</a>
+            <!-- Logo del sitio -->
+            <img src="..\media\icono.png" alt="LibrosOnline" style="height: 60px; margin-right: 10px;">
+            <!-- Botón para desplegar el menú en dispositivos móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú desplegable -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalogo.html" target="_blank">Catálogo</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #b6a792;">
+                            <li><a class="dropdown-item" href="ficcion.html">Ficción</a></li>
+                            <li><a class="dropdown-item" href="infantil.html">Infantil</a></li>
+                            <li><a class="dropdown-item" href="fantasia.html">Fantasía</a></li>
+                            <li><a class="dropdown-item" href="autoayuda.html">Autoayuda</a></li>
+                            <li><a class="dropdown-item" href="historia.html">Historia</a></li>
+                        </ul>
+                    </li>
+                    <!-- Enlace de servicios -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <!-- Botón para activar el modo oscuro/normal -->
+                    <li class="nav-item">
+                        <button id="bot_oscuro_claro" class="btn btn-outline-light">Modo Oscuro</button>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección principal: Bienvenida -->
+    <div class="hero negrita">
+        <h1>Bienvenidos a LibrosOnline</h1>
+        <p>Descubre los mejores libros al mejor precio</p>
+    </div>
+   <!-- Contenedor principal -->
+   <div class="container my-5">
+    <div class="row">
+        <!-- Columna para la tabla de libros más vendidos -->
+        <div class="col-md-9">
+            <section id="tabla-libros">
+                <h2 class="mb-4 negrita">10 libros más vendidos</h2>
+            <!-- Tabla de los libros más vendidos -->
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-warning">
+                        <tr>
+                            <th>#</th>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Género</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <td>1</td>
+                            <td>El Principito</td>
+                            <td>Antoine de Saint-Exupéry</td>
+                            <td>Ficción</td>
+                            <td>10€</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>1984</td>
+                            <td>George Orwell</td>
+                            <td>Ficción</td>
+                            <td>12€</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Harry Potter y la piedra filosofal</td>
+                            <td>J.K. Rowling</td>
+                            <td>Fantasía</td>
+                            <td>15€</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Cien años de soledad</td>
+                            <td>Gabriel García Márquez</td>
+                            <td>Realismo Mágico</td>
+                            <td>18€</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Orgullo y prejuicio</td>
+                            <td>Jane Austen</td>
+                            <td>Romántico</td>
+                            <td>8€</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>El hobbit</td>
+                            <td>J.R.R. Tolkien</td>
+                            <td>Fantasía</td>
+                            <td>20€</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Don Quijote de la Mancha</td>
+                            <td>Miguel de Cervantes</td>
+                            <td>Clásico</td>
+                            <td>22€</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>El Código Da Vinci</td>
+                            <td>Dan Brown</td>
+                            <td>Thriller</td>
+                            <td>14€</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>La sombra del viento</td>
+                            <td>Carlos Ruiz Zafón</td>
+                            <td>Misterio</td>
+                            <td>16€</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Los juegos del hambre</td>
+                            <td>Suzanne Collins</td>
+                            <td>Ciencia ficción</td>
+                            <td>13€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-3 mb-4">
+        <h2 class="mb-4">Contáctanos</h2>
+        <form id="contactForm">
+            <!-- Campo para el nombre -->
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                <div class="invalid-feedback" id="nombre-error">El nombre no puede contener números ni caracteres especiales.</div>
+            </div>
+    
+            <!-- Campo para el correo electrónico -->
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="correo" name="correo" required>
+                <div class="invalid-feedback" id="correo-error">Por favor, ingresa un correo electrónico válido.</div>
+            </div>
+    
+            <!-- Campo para la edad -->
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="edad" name="edad" required>
+                <div class="invalid-feedback" id="edad-error">La edad debe estar entre 1 y 99 años.</div>
+            </div>
+    
+            <!-- Campo para la fecha de nacimiento -->
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha de nacimiento</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" required>
+                <div class="invalid-feedback" id="fecha-error">La fecha debe estar entre 1900 y 2024.</div>
+            </div>
+    
+            <!-- Campo para el mensaje -->
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                <div class="invalid-feedback" id="mensaje-error">El mensaje no puede estar vacío.</div>
+            </div>
+    
+            <!-- Checkbox para aceptar los términos y condiciones -->
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="terminos" name="terminos" required>
+                <label class="form-check-label" for="terminos">Acepto los <a href="#">términos y condiciones</a></label>
+                <div class="invalid-feedback" id="checkbox-error">Debes aceptar los términos y condiciones para enviar el formulario.</div>
+            </div>
+    
+            <!-- Botones para enviar y limpiar -->
+            <button type="button" id="enviarBtn" class="btn btn-success">Enviar</button>
+            <button type="button" id="limpiarBtn" class="btn btn-danger ms-2">Limpiar</button>
+        </form>
+    </div>
+    
+    
+
+            <!-- Toast de confirmación de limpieza -->
+            <div id="eraseToast" class="toast position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive"
+                aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Formulario</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Los campos del formulario han sido borrados.
+                </div>
+            </div>
+
+            <!-- Toast de confirmación de envío -->
+            <div id="successToast" class="toast position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive"
+                aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Éxito</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    El formulario se ha enviado correctamente.
+                </div>
+            </div>
+
+            <!-- Modal para ver las imágenes de las portadas en grande -->
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <!-- Imagen mostrada en el modal -->
+                            <img id="modalImage" src="" class="img-fluid" alt="Imagen Ampliada">
+                        </div>
+                        <div class="modal-footer">
+                            <!-- Botones para navegar entre las imágenes -->
+                            <button id="prevImage" class="btn btn-secondary">Anterior</button>
+                            <button id="nextImage" class="btn btn-secondary">Siguiente</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carrusel de imágenes con portadas de libros -->
+            <section id="carrusel" class="my-5">
+                <h2 class="mb-4 centrar">Galería de Portadas</h2>
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="..\media\1984.png" class="d-block w-300" alt="Libro 1" data-bs-toggle="modal" data-bs-target="#imageModal">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="..\media\principito.png" class="d-block w-300" alt="Libro 1" data-bs-toggle="modal" data-bs-target="#imageModal">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="..\media\sapiens.png" class="d-block w-300" alt="Libro 1" data-bs-toggle="modal" data-bs-target="#imageModal">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="..\media\elalquimista.png" class="d-block w-300" alt="Libro 1" data-bs-toggle="modal" data-bs-target="#imageModal">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="..\media\lasombradelviento.png" class="d-block w-300" alt="Libro 1" data-bs-toggle="modal" data-bs-target="#imageModal">
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="..\media\cienañossoledad.png" class="d-block w-300" alt="Libro 1" data-bs-toggle="modal" data-bs-target="#imageModal">
+                        </div>
+                        <!-- Otras imágenes de los libros... -->
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Reloj digital -->
+            <div id="reloj" style="font-size: 2rem; font-weight: bold;"></div>
+        </div>
+    </div>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="my-5" style="background-color: #b6a792;">
+        <h2 class="mb-4 centrar">Nuestros Servicios</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="bi bi-truck services-icon"></i>
+                <h4>Envíos Rápidos</h4>
+                <p>Recibe tus libros en tiempo récord, directamente en la puerta de tu casa.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-bookmark-heart services-icon"></i>
+                <h4>Selección Especial</h4>
+                <p>Descubre libros cuidadosamente seleccionados para todos los gustos.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-headset services-icon"></i>
+                <h4>Soporte 24/7</h4>
+                <p>Estamos aquí para ayudarte en cualquier momento con tus consultas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archivos JS adicionales -->
+    <script src="oscuro.js"></script>
+    <script src="buscar.js"></script>
+    <script src="reloj.js"></script>
+    <script src="api.js"></script>
+    <script src="carrusel.js"></script>
+</body>
+
+</html>

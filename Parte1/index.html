@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta de Libros</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <script src="myScript.js"></script>
+
+    <style>
+        /* Personaliza estilos adicionales si lo necesitas */
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #b6a792;">
+        <div class="container-fluid">
+            <a class="navbar-brand negrita" href="#">LibrosOnline</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tabla-libros">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#carrusel">Galería</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #b6a792;">
+                            <li><a class="dropdown-item" href="#">Ficción</a></li>
+                            <li><a class="dropdown-item" href="#">No ficción</a></li>
+                            <li><a class="dropdown-item" href="#">Infantil</a></li>
+                            <li><a class="dropdown-item" href="#">Fantasía</a></li>
+                            <li><a class="dropdown-item" href="#">Autoayuda</a></li>
+                            <li><a class="dropdown-item" href="#">Historia</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Botón Modo Oscuro/Claro en el menú -->
+                        <button id="bot_oscuro_claro" class="btn btn-outline-light">Modo Oscuro/Claro</button>
+                    </li>
+
+
+                </ul>
+                
+                <form class="d-flex" id="searchInput" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <div class="hero negrita">
+        <h1>Bienvenidos a LibrosOnline</h1>
+        <p>Descubre los mejores libros al mejor precio</p>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Columna 2: Tabla de libros (3/4 de la página) -->
+            <div class="col-md-9">
+                <section id="tabla-libros">
+                    <h2 class="mb-4 negrita">10 libros más comprados</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-warning">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Título</th>
+                                    <th>Autor</th>
+                                    <th>Género</th>
+                                    <th>Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr>
+                                    <td>1</td>
+                                    <td>El Principito</td>
+                                    <td>Antoine de Saint-Exupéry</td>
+                                    <td>Ficción</td>
+                                    <td>10€</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Cien Años de Soledad</td>
+                                    <td>Gabriel García Márquez</td>
+                                    <td>Ficción</td>
+                                    <td>12€</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Sapiens</td>
+                                    <td>Yuval Noah Harari</td>
+                                    <td>Historia</td>
+                                    <td>15€</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Don Quijote</td>
+                                    <td>Miguel de Cervantes</td>
+                                    <td>Clásico</td>
+                                    <td>14€</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>1984</td>
+                                    <td>George Orwell</td>
+                                    <td>Ciencia Ficción</td>
+                                    <td>11€</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>La Sombra del Viento</td>
+                                    <td>Carlos Ruiz Zafón</td>
+                                    <td>Ficción</td>
+                                    <td>13€</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>Harry Potter y la Piedra Filosofal</td>
+                                    <td>J.K. Rowling</td>
+                                    <td>Fantasía</td>
+                                    <td>9€</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>El Hobbit</td>
+                                    <td>J.R.R. Tolkien</td>
+                                    <td>Fantasía</td>
+                                    <td>10€</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>La Casa de los Espíritus</td>
+                                    <td>Isabel Allende</td>
+                                    <td>Ficción</td>
+                                    <td>12€</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>El Alquimista</td>
+                                    <td>Paulo Coelho</td>
+                                    <td>Autoayuda</td>
+                                    <td>8€</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+            <!-- Columna 1: Formulario (1/4 de la página) -->
+            <div class="col-md-3 mb-4">
+                <h2 class="mb-4">Contáctanos</h2>
+                <form id="contactForm">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <div class="invalid-feedback" id="nombre-error">El nombre no puede contener números ni
+                            caracteres especiales.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                        <!--<div class "invalid-feedback"></div>-->
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" pattern="[0-9]{9}"
+                            required>
+                        <div class="invalid-feedback">Por favor, ingresa un teléfono válido de 10 dígitos.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edad" class="form-label">Edad</label>
+                        <input type="number" class="form-control" id="edad" name="edad" min="18" max="99" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required></textarea>
+                        <div class="invalid-feedback" id="mensaje-error">El mensaje no puede contener números ni
+                            caracteres especiales.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="fecha" name="fecha" required>
+                        <div class="invalid-feedback" id="fecha-error">La fecha debe estar entre 1900 y 2005.</div>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="acepto" required>
+                        <label class="form-check-label" for="acepto">Acepto los términos y condiciones</label>
+                    </div>
+                    
+                    <!-- Botón Enviar -->
+                    <button type="submit" id="enviarBtn" class="btn btn-success">Enviar</button>
+                    <!-- Botón Limpiar -->
+                    <button type="button" id="limpiarBtn" class="btn btn-danger ms-2">Limpiar</button>
+
+                    
+
+                </form>
+            </div>
+
+            <!-- Toast para la notificación de limpieza -->
+            <div id="eraseToast" class="toast position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive"
+                aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Formulario</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    Los campos del formulario han sido borrados.
+                </div>
+            </div>
+
+            <!-- Toast de confirmación de envío exitoso -->
+            <div id="successToast" class="toast position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive"
+                aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto">Éxito</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    El formulario se ha enviado correctamente.
+                </div>
+            </div>
+
+
+            <!-- Carrusel de imágenes -->
+            <section id="carrusel" class="my-5">
+                <h2 class="mb-4 centrar">Galería de Portadas</h2>
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                            aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+                            aria-label="Slide 6"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="..\media\1984.png" class="d-block w-300" alt="Libro 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="..\media\sapiens.png" class="d-block w-300" alt="Libro 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="..\media\lasombradelviento.png" class="d-block w-300" alt="Libro 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="..\media\principito.png" class="d-block w-300" alt="Libro 4">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="..\media\elalquimista.png" class="d-block w-300" alt="Libro 5">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="..\media\cienañossoledad.png" class="d-block w-300" alt="Libro 6">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Reloj Digital -->
+            <div id="reloj" style="font-size: 2rem; font-weight: bold;"></div>
+
+            <!-- Servicios -->
+            <section id="servicios" class="my-5">
+                <h2 class="mb-4 centrar">Nuestros Servicios</h2>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <i class="bi bi-truck services-icon"></i>
+                        <h4>Envíos Rápidos</h4>
+                        <p>Recibe tus libros en tiempo récord, directamente en la puerta de tu casa.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="bi bi-bookmark-heart services-icon"></i>
+                        <h4>Selección Especial</h4>
+                        <p>Descubre libros cuidadosamente seleccionados para todos los gustos.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <i class="bi bi-headset services-icon"></i>
+                        <h4>Soporte 24/7</h4>
+                        <p>Estamos aquí para ayudarte en cualquier momento con tus consultas.</p>
+                    </div>
+                </div>
+            </section>
+
+</body>
+
+</html>
