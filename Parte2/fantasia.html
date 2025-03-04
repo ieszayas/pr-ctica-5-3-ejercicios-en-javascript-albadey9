@@ -2,29 +2,33 @@
 <html lang="es">
 
 <head>
-    <!-- Define la codificación de caracteres del documento como UTF-8, para manejar correctamente caracteres especiales -->
+    <!-- Define la codificación de caracteres del documento como UTF-8, útil para mostrar caracteres especiales -->
     <meta charset="UTF-8">
-    <!-- Hace que la página sea responsive, ajustándose bien a diferentes tamaños de pantalla (como en móviles y tabletas) -->
+    
+    <!-- Hace que la página sea responsive, adaptándose a diferentes tamaños de pantalla (por ejemplo, móviles) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título de la página que aparece en la pestaña del navegador -->
+    
+    <!-- Título que aparecerá en la pestaña del navegador -->
     <title>Venta de Libros</title>
     
-    <!-- Link a la hoja de estilos de Bootstrap para usar los estilos predefinidos de este framework -->
+    <!-- Incluye la hoja de estilos de Bootstrap para utilizar los componentes y estilos predefinidos de este framework -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Link a los íconos de Bootstrap, útil para agregar iconos a la interfaz -->
+    <!-- Incluye los íconos de Bootstrap, lo que permite usar iconos de fácil acceso en la interfaz -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <!-- Script para el funcionamiento de los componentes interactivos de Bootstrap (como los menús desplegables y el botón de navegación móvil) -->
+
+    <!-- Incluye el script de Bootstrap que maneja los componentes interactivos (como el menú desplegable y el botón móvil) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Link a tu hoja de estilos personalizada, donde puedes agregar reglas CSS específicas -->
+    <!-- Enlace a tu archivo de estilos CSS personalizado -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Incluye el script de Bootstrap para componentes interactivos (aunque ya se incluyó uno antes) -->
+    <!-- Incluye otro script de Bootstrap (este parece repetido, pero puede ser útil si quieres usar otro tipo de funcionalidad de JS) -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Incluye tu archivo JavaScript personalizado -->
+    <!-- Enlace a tu archivo JS personalizado -->
+     <!-- Enlace a un archivo CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
     <script src="myScript.js"></script>
 </head>
 
@@ -32,25 +36,26 @@
     <!-- Barra de navegación (Navbar) -->
     <nav class="navbar navbar-expand-lg" style="background-color: #b6a792;">
         <div class="container-fluid">
-            <!-- Enlace a la página principal con la marca 'LibrosOnline' -->
+            <!-- Enlace a la página de inicio con el nombre de la marca 'LibrosOnline' -->
             <a class="navbar-brand negrita" href="index.html">LibrosOnline</a>
             
-            <!-- Imagen del icono al lado de la marca 'LibrosOnline' -->
+            <!-- Icono al lado del nombre de la marca, con un tamaño y margen ajustado -->
             <img src="..\media\icono.png" alt="LibrosOnline" style="height: 60px; margin-right: 10px;">
             
-            <!-- Botón para la navegación en dispositivos móviles (cuando la pantalla es pequeña) -->
+            <!-- Botón que aparece en pantallas pequeñas para alternar la visibilidad del menú de navegación -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Menú de navegación que se muestra en pantallas grandes y se colapsa en pantallas pequeñas -->
+            <!-- Menú de navegación que se colapsa en pantallas pequeñas -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <!-- Enlace al catálogo -->
                     <li class="nav-item">
                         <a class="nav-link" href="catalogo.html" target="_blank">Catálogo</a>
                     </li>
+                    
                     <!-- Menú desplegable de categorías -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -66,10 +71,12 @@
                             <li><a class="dropdown-item" href="historia.html">Historia</a></li>
                         </ul>
                     </li>
+                    
                     <!-- Enlace a la sección de servicios -->
                     <li class="nav-item">
                         <a class="nav-link" href="#servicios">Servicios</a>
                     </li>
+                    
                     <!-- Botón para activar el modo oscuro o claro -->
                     <li class="nav-item">
                         <button id="bot_oscuro_claro" class="btn btn-outline-light">Modo Oscuro</button>
@@ -78,8 +85,9 @@
                 
                 <!-- Formulario de búsqueda -->
                 <form class="d-flex" id="searchInput" role="search">
-                    <!-- Campo de búsqueda -->
+                    <!-- Campo de texto para escribir la búsqueda -->
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="searchQuery">
+                    
                     <!-- Botón para ejecutar la búsqueda -->
                     <button class="btn btn-outline-light" type="submit">Buscar</button>
                 </form>
@@ -87,36 +95,51 @@
         </div>
     </nav>
 
-    <!-- Sección Hero (Destacada) -->
+    <!-- Sección Hero: Un título destacado al inicio de la página -->
     <div class="hero negrita">
         <h1>Descubre los mejores libros al mejor precio</h1>
     </div>
 
-    <!-- Sección para mostrar los libros -->
+    <!-- Tabla que muestra los libros de la categoría 'Fantasía' -->
     <div class="container mt-5">
-        <h2 class="text-center">Catálogo de libros</h2>
-        <div class="row" id="librosContainer">
-            <!-- Aquí se agregarán los libros con JavaScript -->
-        </div>
+        <h2 class="text-center">Fantasía</h2>
+        <!-- Botón de Informe Gráfico -->
+    <div class="text-end mb-3">
+        <a href="informe_grafico_fantasia.html" class="btn btn-primary" id="boton_grafico">Informe Gráfico</a>
+    </div>
+        <!-- Tabla que contiene la información de los libros -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Portada</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Más Información</th>
+                </tr>
+            </thead>
+            <tbody id="librosTabla">
+                <!-- Aquí se agregarán los libros dinámicamente con JavaScript -->
+            </tbody>
+        </table>
     </div>
 
     <!-- Sección de Servicios -->
     <section id="servicios" class="my-5" style="background-color: #b6a792;">
         <h2 class="mb-4 centrar">Nuestros Servicios</h2>
         <div class="row text-center">
-            <!-- Servicio 1 -->
+            <!-- Servicio 1: Envíos Rápidos -->
             <div class="col-md-4">
                 <i class="bi bi-truck services-icon"></i>
                 <h4>Envíos Rápidos</h4>
                 <p>Recibe tus libros en tiempo récord, directamente en la puerta de tu casa.</p>
             </div>
-            <!-- Servicio 2 -->
+            <!-- Servicio 2: Selección Especial -->
             <div class="col-md-4">
                 <i class="bi bi-bookmark-heart services-icon"></i>
                 <h4>Selección Especial</h4>
                 <p>Descubre libros cuidadosamente seleccionados para todos los gustos.</p>
             </div>
-            <!-- Servicio 3 -->
+            <!-- Servicio 3: Soporte 24/7 -->
             <div class="col-md-4">
                 <i class="bi bi-headset services-icon"></i>
                 <h4>Soporte 24/7</h4>
@@ -125,9 +148,9 @@
         </div>
     </section>
 
-    <!-- Scripts de JavaScript -->
-    <script src="oscuro.js"></script> <!-- Script para el modo oscuro/claro -->
-    <script src="buscar.js"></script> <!-- Script para la funcionalidad de búsqueda -->
-    <script src="apicatalogo.js"></script> <!-- Script para cargar los libros en el catálogo -->
+    <!-- Scripts -->
+    <script src="oscuro.js"></script> <!-- Script para cambiar el modo de tema (oscuro/claro) -->
+    <script src="buscar.js"></script> <!-- Script para manejar la funcionalidad de búsqueda -->
+    <script src="apifantasia.js"></script> <!-- Script para cargar dinámicamente los libros de la categoría Fantasía -->
 </body>
 </html>

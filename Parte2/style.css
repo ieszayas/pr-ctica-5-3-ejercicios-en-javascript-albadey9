@@ -100,3 +100,10 @@ body.modo-oscuro .read-more:hover {
     color: #333;
     margin-top: 20px;
 }
+
+#boton_grafico {
+    background-color: #887152;
+    /* Cambia el fondo marron*/
+    color: white;
+    /* Cambia el color del texto a blanco */
+}

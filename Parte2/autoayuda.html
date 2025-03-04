@@ -2,63 +2,57 @@
 <html lang="es">
 
 <head>
-    <!-- Define la codificación de caracteres del documento como UTF-8, para manejar correctamente caracteres especiales -->
     <meta charset="UTF-8">
-    <!-- Hace que la página sea responsive, ajustándose bien a diferentes tamaños de pantalla (como en móviles y tabletas) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título de la página que aparece en la pestaña del navegador -->
     <title>Venta de Libros</title>
     
-    <!-- Link a la hoja de estilos de Bootstrap para usar los estilos predefinidos de este framework -->
+    <!-- Bootstrap CSS (estilo predeterminado para diseño y componentes) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Link a los íconos de Bootstrap, útil para agregar iconos a la interfaz -->
+    <!-- Bootstrap Icons (íconos para usar en la interfaz) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     
-    <!-- Script para el funcionamiento de los componentes interactivos de Bootstrap (como los menús desplegables y el botón de navegación móvil) -->
+    <!-- Bootstrap JS (funcionalidades interactivas de Bootstrap) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Link a tu hoja de estilos personalizada, donde puedes agregar reglas CSS específicas -->
+    <!-- Hoja de estilo personalizada -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Incluye el script de Bootstrap para componentes interactivos (aunque ya se incluyó uno antes) -->
+    <!-- Scripts adicionales -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Incluye tu archivo JavaScript personalizado -->
     <script src="myScript.js"></script>
+
 </head>
 
 <body>
+
     <!-- Barra de navegación (Navbar) -->
     <nav class="navbar navbar-expand-lg" style="background-color: #b6a792;">
         <div class="container-fluid">
-            <!-- Enlace a la página principal con la marca 'LibrosOnline' -->
+            <!-- Logo de la página -->
             <a class="navbar-brand negrita" href="index.html">LibrosOnline</a>
-            
-            <!-- Imagen del icono al lado de la marca 'LibrosOnline' -->
             <img src="..\media\icono.png" alt="LibrosOnline" style="height: 60px; margin-right: 10px;">
             
-            <!-- Botón para la navegación en dispositivos móviles (cuando la pantalla es pequeña) -->
+            <!-- Botón para la vista móvil (colapsa el menú) -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Menú de navegación que se muestra en pantallas grandes y se colapsa en pantallas pequeñas -->
+            <!-- Menú de navegación -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <!-- Enlace al catálogo -->
                     <li class="nav-item">
                         <a class="nav-link" href="catalogo.html" target="_blank">Catálogo</a>
                     </li>
-                    <!-- Menú desplegable de categorías -->
+                    <!-- Menú desplegable para las categorías de libros -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Categorías
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #b6a792;">
-                            <!-- Opciones del menú desplegable -->
                             <li><a class="dropdown-item" href="ficcion.html">Ficción</a></li>
                             <li><a class="dropdown-item" href="infantil.html">Infantil</a></li>
                             <li><a class="dropdown-item" href="fantasia.html">Fantasía</a></li>
@@ -70,53 +64,65 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#servicios">Servicios</a>
                     </li>
-                    <!-- Botón para activar el modo oscuro o claro -->
+                    <!-- Botón para cambiar al modo oscuro/claro -->
                     <li class="nav-item">
                         <button id="bot_oscuro_claro" class="btn btn-outline-light">Modo Oscuro</button>
                     </li>
                 </ul>
                 
-                <!-- Formulario de búsqueda -->
+                <!-- Barra de búsqueda -->
                 <form class="d-flex" id="searchInput" role="search">
-                    <!-- Campo de búsqueda -->
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="searchQuery">
-                    <!-- Botón para ejecutar la búsqueda -->
                     <button class="btn btn-outline-light" type="submit">Buscar</button>
                 </form>
             </div>
         </div>
     </nav>
 
-    <!-- Sección Hero (Destacada) -->
+    <!-- Sección principal o Hero (introducción del sitio) -->
     <div class="hero negrita">
         <h1>Descubre los mejores libros al mejor precio</h1>
     </div>
 
-    <!-- Sección para mostrar los libros -->
+    <!-- Tabla de libros de la categoría Autoayuda -->
     <div class="container mt-5">
-        <h2 class="text-center">Catálogo de libros</h2>
-        <div class="row" id="librosContainer">
-            <!-- Aquí se agregarán los libros con JavaScript -->
-        </div>
+        <h2 class="text-center">Autoayuda</h2>
+        <!-- Botón de Informe Gráfico -->
+    <div class="text-end mb-3">
+        <a href="informe_grafico_autoayuda.html" class="btn btn-primary" id="boton_grafico">Informe Gráfico</a>
+    </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Portada</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Más Información</th>
+                </tr>
+            </thead>
+            <tbody id="librosTabla">
+                <!-- Los libros se agregarán aquí mediante JavaScript -->
+            </tbody>
+        </table>
     </div>
 
-    <!-- Sección de Servicios -->
+    <!-- Sección de servicios (acerca de lo que ofrece la página) -->
     <section id="servicios" class="my-5" style="background-color: #b6a792;">
         <h2 class="mb-4 centrar">Nuestros Servicios</h2>
         <div class="row text-center">
-            <!-- Servicio 1 -->
+            <!-- Servicio 1: Envíos Rápidos -->
             <div class="col-md-4">
                 <i class="bi bi-truck services-icon"></i>
                 <h4>Envíos Rápidos</h4>
                 <p>Recibe tus libros en tiempo récord, directamente en la puerta de tu casa.</p>
             </div>
-            <!-- Servicio 2 -->
+            <!-- Servicio 2: Selección Especial de Libros -->
             <div class="col-md-4">
                 <i class="bi bi-bookmark-heart services-icon"></i>
                 <h4>Selección Especial</h4>
                 <p>Descubre libros cuidadosamente seleccionados para todos los gustos.</p>
             </div>
-            <!-- Servicio 3 -->
+            <!-- Servicio 3: Soporte 24/7 -->
             <div class="col-md-4">
                 <i class="bi bi-headset services-icon"></i>
                 <h4>Soporte 24/7</h4>
@@ -125,9 +131,10 @@
         </div>
     </section>
 
-    <!-- Scripts de JavaScript -->
-    <script src="oscuro.js"></script> <!-- Script para el modo oscuro/claro -->
-    <script src="buscar.js"></script> <!-- Script para la funcionalidad de búsqueda -->
-    <script src="apicatalogo.js"></script> <!-- Script para cargar los libros en el catálogo -->
+    <!-- Scripts para funcionalidades -->
+    <script src="oscuro.js"></script>
+    <script src="buscar.js"></script>
+    <script src="apiautoayuda.js"></script>
+
 </body>
 </html>
